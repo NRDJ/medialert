@@ -1,0 +1,8 @@
+{
+  "signosVitales" : [ "FRECUENCIA_CARDIACA: 75 lpm", "SATURACION_OXIGENO: 98%", "TEMPERATURA: 36.8 C" ],
+  "periodo" : "2026-06-29 18:00 - 18:30",
+  "observacion" : "Paciente estable durante el periodo",
+  "fechaResumen" : "2026-06-29T18:36:43.653412",
+  "pacienteNombre" : "María González",
+  "pacienteRut" : "18.765.432-1"
+}

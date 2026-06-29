@@ -1,0 +1,8 @@
+@"
+target/
+*.class
+*.jar
+.idea/
+*.iml
+.vscode/
+"@ | Out-File -FilePath ".gitignore" -Encoding UTF8
