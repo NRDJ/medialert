@@ -24,5 +24,69 @@
       RABBITMQ_DEFAULT_USER: admin
       RABBITMQ_DEFAULT_PASS: admin123
 
+  productor-senales:
+    build: ./productor-senales
+    container_name: productor-senales
+    restart: unless-stopped
+    depends_on:
+      - rabbitmq
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: admin
+      SPRING_RABBITMQ_PASSWORD: admin123
+
+  productor-resumen:
+    build: ./productor-resumen
+    container_name: productor-resumen
+    restart: unless-stopped
+    depends_on:
+      - rabbitmq
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: admin
+      SPRING_RABBITMQ_PASSWORD: admin123
+
+  consumidor-oracle:
+    build: ./consumidor-oracle
+    container_name: consumidor-oracle
+    restart: unless-stopped
+    depends_on:
+      - rabbitmq
+      - oracle
+    ports:
+      - "8083:8083"
+    environment:
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: admin
+      SPRING_RABBITMQ_PASSWORD: admin123
+      SPRING_DATASOURCE_URL: jdbc:oracle:thin:@//oracle:1521/XEPDB1
+      SPRING_DATASOURCE_USERNAME: ALERTAS_APP
+      SPRING_DATASOURCE_PASSWORD: Alertas123
+
+  consumidor-json:
+    build: ./consumidor-json
+    container_name: consumidor-json
+    restart: unless-stopped
+    depends_on:
+      - rabbitmq
+    ports:
+      - "8084:8084"
+    environment:
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: admin
+      SPRING_RABBITMQ_PASSWORD: admin123
+      ALERTAS_JSON_DIRECTORIO: /app/alertas-json
+    volumes:
+      - alertas_json:/app/alertas-json
+
 volumes:
   oracle_data:
+  alertas_json:
