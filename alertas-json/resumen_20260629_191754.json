@@ -1,0 +1,8 @@
+{
+  "signosVitales" : [ "SATURACION_OXIGENO: 85%", "FRECUENCIA_CARDIACA: 95 lpm", "TEMPERATURA: 37.1 C" ],
+  "periodo" : "2026-06-29 19:00 - 19:15",
+  "observacion" : "Paciente con dificultad respiratoria, en observacion",
+  "fechaResumen" : "2026-06-29T19:17:54.031792500",
+  "pacienteNombre" : "Carlos Rojas",
+  "pacienteRut" : "15.222.333-4"
+}
